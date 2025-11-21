@@ -48,3 +48,16 @@ btns.appendChild(editBtn);
 
   todoList.appendChild(li);
 }
+
+                                                        // Edit function
+
+function editTodoItem(span, btn) {
+  const oldText = span.textContent;
+  const input = document.createElement('input');
+  input.value = oldText;
+  input.className = "border px-1 py-0.5 rounded w-full";
+
+  span.replaceWith(input);
+  btn.textContent = "Save";
+
+}
