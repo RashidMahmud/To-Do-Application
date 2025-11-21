@@ -30,7 +30,7 @@ function addTodoItem(text) {
 
 const editBtn = document.createElement('button');
   editBtn.textContent = "Edit";
-  editBtn.className = "text-yellow-600 hover:underline cursor-pointer";
+  editBtn.className = "text-blue-600 hover:underline cursor-pointer";
   editBtn.onclick = () => editTodoItem(span, editBtn);
 
                                                         // Delete button
@@ -60,4 +60,15 @@ function editTodoItem(span, btn) {
   span.replaceWith(input);
   btn.textContent = "Save";
 
+btn.onclick = () => {
+    if (input.value.trim() !== "") {
+      const newSpan = document.createElement('span');
+      newSpan.textContent = input.value.trim();
+      input.replaceWith(newSpan);
+      btn.textContent = "Edit";
+      btn.onclick = () => editTodoItem(newSpan, btn);
+    }
+  };
 }
+
+                                                        // Project Completed
